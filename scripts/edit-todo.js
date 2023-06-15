@@ -4,6 +4,7 @@ const todoButtonSubmit = document.getElementById("todoButtonSubmit");
 const todoTitle = document.getElementById("todoTitle");
 const todoCompleted = document.getElementById("todoCompleted");
 const todoUserId = document.getElementById("todoUserId");
+
 const todoButtonUpdate = document.getElementById("todoButtonUpdate");
 
 const messageText = document.getElementById("messageText");
@@ -21,23 +22,11 @@ function init() {
 
 }
 
-// function populateForm() {
-//     console.log("clicked");
-
-//     let theUrl = "http://localhost:3000/todos/" + todoId.value;
-//     fetch(theUrl)
-//       .then((response) => response.json())
-//       .then((data) => {
-//         console.log(data);
-
-//         let message = `TODO ID: ${data.id}  ${data.title} completed:  ${data.completed} User:  ${data.userId}`;
-//         messageText.innerHTML = message;
-//       });
-// }
 
 function onTodoButtonClick() {
 
   editForm.style.display = "block";
+  todoId.disabled ="true";
   console.log("clicked");
 
   let theUrl = "http://localhost:3000/todos/" + todoId.value;
@@ -52,11 +41,13 @@ function onTodoButtonClick() {
       
       todoUserId.value = data.userId;
     });
+
 }
+
 
 function onTodoButtonUpdateClick() {
   
-
+     // Create JSON object to include in the request body
   let bodyData = {
     title: todoTitle.value,
     completed: todoCompleted.value,
@@ -74,7 +65,10 @@ function onTodoButtonUpdateClick() {
     .then(data => {
       // If the POST finishes successfully, display a message
 
-      console.log("i work");
+      console.log("todobuttoupdateclicked");
+
+
+
 
       messageText.innerHTML = "You have successfully edit this TODO"
 
