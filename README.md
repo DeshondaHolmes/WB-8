@@ -1,2 +1,8 @@
-# WB-8
-Workbook 8 exercises 
+# JsonPlaceholder
+
+
+A demo Api exercise
+
+My first api collection website
+
+
